@@ -27,6 +27,6 @@ export class UnityRepository {
   }
 
   async create(createUnityDTO: createUnityDTO) {
-    this.prisma.unity.create({ data: createUnityDTO });
+    return await this.prisma.unity.create({ data: createUnityDTO });
   }
 }

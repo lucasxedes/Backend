@@ -14,5 +14,5 @@ export declare class UnityController {
             endIndex: number;
         };
     }>;
-    create(createUnityDTO: createUnityDTO): Promise<void>;
+    create(createUnityDTO: createUnityDTO): Promise<import(".prisma/client").Unity>;
 }

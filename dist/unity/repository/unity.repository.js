@@ -29,7 +29,7 @@ let UnityRepository = class UnityRepository {
         return { results, totalItems };
     }
     async create(createUnityDTO) {
-        this.prisma.unity.create({ data: createUnityDTO });
+        return await this.prisma.unity.create({ data: createUnityDTO });
     }
 };
 UnityRepository = __decorate([

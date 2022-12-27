@@ -7,5 +7,5 @@ export declare class UnityRepository {
         results: import(".prisma/client").Unity[];
         totalItems: number;
     }>;
-    create(createUnityDTO: createUnityDTO): Promise<void>;
+    create(createUnityDTO: createUnityDTO): Promise<import(".prisma/client").Unity>;
 }
