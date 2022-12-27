@@ -1,4 +1,5 @@
-import { createUnityDTO } from './dto/create-unity.dto';
+import { CreateUnityDTO } from './dto/create-unity.dto';
+import { UpdateUnityDTO } from './dto/update-unity.dto';
 import { UnityService } from './unity.service';
 export declare class UnityController {
     private readonly unityService;
@@ -14,5 +15,6 @@ export declare class UnityController {
             endIndex: number;
         };
     }>;
-    create(createUnityDTO: createUnityDTO): Promise<import(".prisma/client").Unity>;
+    create(createUnityDTO: CreateUnityDTO): Promise<import(".prisma/client").Unity>;
+    update(id: string, updateUnityDTO: UpdateUnityDTO): Promise<import(".prisma/client").Unity>;
 }

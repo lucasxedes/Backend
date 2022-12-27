@@ -31,6 +31,12 @@ let UnityRepository = class UnityRepository {
     async create(createUnityDTO) {
         return await this.prisma.unity.create({ data: createUnityDTO });
     }
+    async update(id, updateUnityDTO) {
+        return await this.prisma.unity.update({
+            where: { id },
+            data: updateUnityDTO,
+        });
+    }
 };
 UnityRepository = __decorate([
     (0, common_1.Injectable)(),

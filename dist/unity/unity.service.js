@@ -35,6 +35,9 @@ let UnityService = class UnityService {
     async create(createUnityDTO) {
         return await this.repository.create(createUnityDTO);
     }
+    async update(id, updateUnityDTO) {
+        return await this.repository.update(id, updateUnityDTO);
+    }
 };
 UnityService = __decorate([
     (0, common_1.Injectable)(),

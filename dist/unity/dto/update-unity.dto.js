@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateUnityDTO = void 0;
+exports.UpdateUnityDTO = void 0;
 const mapped_types_1 = require("@nestjs/mapped-types");
 const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 const create_unity_dto_1 = require("./create-unity.dto");
-class updateUnityDTO extends (0, mapped_types_1.PartialType)(create_unity_dto_1.createUnityDTO) {
+class UpdateUnityDTO extends (0, mapped_types_1.PartialType)(create_unity_dto_1.CreateUnityDTO) {
 }
 __decorate([
     (0, class_validator_1.IsNumber)({}, { message: 'O id não pode ser vazio' }),
     (0, class_transformer_1.Type)(() => Number),
     __metadata("design:type", typeof BigInt === "function" ? BigInt : Object)
-], updateUnityDTO.prototype, "id", void 0);
-exports.updateUnityDTO = updateUnityDTO;
+], UpdateUnityDTO.prototype, "id", void 0);
+exports.UpdateUnityDTO = UpdateUnityDTO;
 //# sourceMappingURL=update-unity.dto.js.map

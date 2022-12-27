@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { createUnityDTO } from './dto/create-unity.dto';
+import { CreateUnityDTO } from './dto/create-unity.dto';
+import { UpdateUnityDTO } from './dto/update-unity.dto';
 import { UnityRepository } from './repository/unity.repository';
 
 @Injectable()
@@ -37,7 +38,11 @@ export class UnityService {
     };
   }
 
-  async create(createUnityDTO: createUnityDTO) {
+  async create(createUnityDTO: CreateUnityDTO) {
     return await this.repository.create(createUnityDTO);
+  }
+
+  async update(id: bigint, updateUnityDTO: UpdateUnityDTO) {
+    return await this.repository.update(id, updateUnityDTO);
   }
 }

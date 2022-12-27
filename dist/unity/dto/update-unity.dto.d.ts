@@ -1,6 +1,6 @@
-import { createUnityDTO } from './create-unity.dto';
-declare const updateUnityDTO_base: import("@nestjs/mapped-types").MappedType<Partial<createUnityDTO>>;
-export declare class updateUnityDTO extends updateUnityDTO_base {
+import { CreateUnityDTO } from './create-unity.dto';
+declare const UpdateUnityDTO_base: import("@nestjs/mapped-types").MappedType<Partial<CreateUnityDTO>>;
+export declare class UpdateUnityDTO extends UpdateUnityDTO_base {
     readonly id: bigint;
 }
 export {};

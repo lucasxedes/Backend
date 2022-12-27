@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UnityController = void 0;
 const common_1 = require("@nestjs/common");
 const create_unity_dto_1 = require("./dto/create-unity.dto");
+const update_unity_dto_1 = require("./dto/update-unity.dto");
 const unity_service_1 = require("./unity.service");
 let UnityController = class UnityController {
     constructor(unityService) {
@@ -25,6 +26,9 @@ let UnityController = class UnityController {
     }
     async create(createUnityDTO) {
         return await this.unityService.create(createUnityDTO);
+    }
+    async update(id, updateUnityDTO) {
+        return await this.unityService.update(BigInt(id), updateUnityDTO);
     }
 };
 __decorate([
@@ -38,9 +42,17 @@ __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_unity_dto_1.createUnityDTO]),
+    __metadata("design:paramtypes", [create_unity_dto_1.CreateUnityDTO]),
     __metadata("design:returntype", Promise)
 ], UnityController.prototype, "create", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_unity_dto_1.UpdateUnityDTO]),
+    __metadata("design:returntype", Promise)
+], UnityController.prototype, "update", null);
 UnityController = __decorate([
     (0, common_1.Controller)('unity'),
     __metadata("design:paramtypes", [unity_service_1.UnityService])

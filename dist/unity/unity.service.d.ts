@@ -1,4 +1,5 @@
-import { createUnityDTO } from './dto/create-unity.dto';
+import { CreateUnityDTO } from './dto/create-unity.dto';
+import { UpdateUnityDTO } from './dto/update-unity.dto';
 import { UnityRepository } from './repository/unity.repository';
 export declare class UnityService {
     private readonly repository;
@@ -14,5 +15,6 @@ export declare class UnityService {
             endIndex: number;
         };
     }>;
-    create(createUnityDTO: createUnityDTO): Promise<import(".prisma/client").Unity>;
+    create(createUnityDTO: CreateUnityDTO): Promise<import(".prisma/client").Unity>;
+    update(id: bigint, updateUnityDTO: UpdateUnityDTO): Promise<import(".prisma/client").Unity>;
 }

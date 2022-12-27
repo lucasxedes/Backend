@@ -1,3 +1,3 @@
-export declare class createUnityDTO {
+export declare class CreateUnityDTO {
     name: string;
 }

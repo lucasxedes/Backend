@@ -16,14 +16,13 @@ let ErrorsInterceptor = class ErrorsInterceptor {
             switch (code) {
                 case 'P2002':
                     if (err.message.includes('name')) {
-                        throw new common_1.ConflictException('Um registro com esse nome já existe');
+                        throw new common_1.ConflictException('Um registro com esse nome já existe.');
                     }
-                    break;
+                case 'P2025':
+                    throw new common_1.NotFoundException('Registro não encontrando.');
                 default:
                     throw new common_1.BadGatewayException();
             }
-            console.log(err);
-            throw new common_1.BadGatewayException();
         }));
     }
 };
