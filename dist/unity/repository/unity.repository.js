@@ -9,33 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UnityService = void 0;
+exports.UnityRepository = void 0;
 const common_1 = require("@nestjs/common");
-const unity_repository_1 = require("./repository/unity.repository");
-let UnityService = class UnityService {
-    constructor(repository) {
-        this.repository = repository;
+const prisma_service_1 = require("../../prisma/prisma.service");
+let UnityRepository = class UnityRepository {
+    constructor(prisma) {
+        this.prisma = prisma;
     }
     async paginate(page, size, sort, order, search) {
-        const { results, totalItems } = await this.repository.paginate(page, size, sort, order, search);
-        const totalPages = Math.ceil(totalItems / size) - 1;
-        const currentPage = Number(page);
-        return {
-            results,
-            paginations: {
-                length: totalItems,
-                size: size,
-                lastPage: totalPages,
-                page: currentPage,
-                startIndex: currentPage * size,
-                endIndex: currentPage * size + (size - 1),
-            },
-        };
+        const results = await this.prisma.unity.findMany({
+            skip: page * size,
+            take: Number(size),
+            where: { name: { contains: search } },
+            orderBy: { [sort]: order },
+        });
+        const totalItems = await this.prisma.unity.count({
+            where: { name: { contains: search, mode: 'insensitive' } },
+        });
+        return { results, totalItems };
     }
 };
-UnityService = __decorate([
+UnityRepository = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [unity_repository_1.UnityRepository])
-], UnityService);
-exports.UnityService = UnityService;
-//# sourceMappingURL=unity.service.js.map
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
+], UnityRepository);
+exports.UnityRepository = UnityRepository;
+//# sourceMappingURL=unity.repository.js.map

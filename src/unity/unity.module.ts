@@ -3,7 +3,7 @@ import { UnityController } from './unity.controller';
 import { UnityService } from './unity.service';
 
 @Module({
-    controllers: [UnityController],
-    providers:[UnityService]
+  controllers: [UnityController],
+  providers: [UnityService],
 })
 export class UnityModule {}

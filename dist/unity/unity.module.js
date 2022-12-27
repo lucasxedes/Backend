@@ -15,7 +15,7 @@ let UnityModule = class UnityModule {
 UnityModule = __decorate([
     (0, common_1.Module)({
         controllers: [unity_controller_1.UnityController],
-        providers: [unity_service_1.UnityService]
+        providers: [unity_service_1.UnityService],
     })
 ], UnityModule);
 exports.UnityModule = UnityModule;
