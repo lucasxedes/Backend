@@ -28,6 +28,9 @@ let UnityRepository = class UnityRepository {
         });
         return { results, totalItems };
     }
+    async create(createUnityDTO) {
+        this.prisma.unity.create({ data: createUnityDTO });
+    }
 };
 UnityRepository = __decorate([
     (0, common_1.Injectable)(),

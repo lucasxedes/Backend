@@ -1,3 +1,4 @@
+import { createUnityDTO } from './dto/create-unity.dto';
 import { UnityRepository } from './repository/unity.repository';
 export declare class UnityService {
     private readonly repository;
@@ -13,4 +14,5 @@ export declare class UnityService {
             endIndex: number;
         };
     }>;
+    create(createUnityDTO: createUnityDTO): Promise<void>;
 }

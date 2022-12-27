@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { createUnityDTO } from './dto/create-unity.dto';
 import { UnityRepository } from './repository/unity.repository';
 
 @Injectable()
@@ -34,5 +35,9 @@ export class UnityService {
         endIndex: currentPage * size + (size - 1),
       },
     };
+  }
+
+  async create(createUnityDTO: createUnityDTO) {
+    return await this.repository.create(createUnityDTO);
   }
 }

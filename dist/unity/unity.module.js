@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UnityModule = void 0;
 const common_1 = require("@nestjs/common");
+const prisma_service_1 = require("../prisma/prisma.service");
+const unity_repository_1 = require("./repository/unity.repository");
 const unity_controller_1 = require("./unity.controller");
 const unity_service_1 = require("./unity.service");
 let UnityModule = class UnityModule {
@@ -15,7 +17,7 @@ let UnityModule = class UnityModule {
 UnityModule = __decorate([
     (0, common_1.Module)({
         controllers: [unity_controller_1.UnityController],
-        providers: [unity_service_1.UnityService],
+        providers: [unity_service_1.UnityService, unity_repository_1.UnityRepository, prisma_service_1.PrismaService],
     })
 ], UnityModule);
 exports.UnityModule = UnityModule;

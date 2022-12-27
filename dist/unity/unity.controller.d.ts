@@ -1,3 +1,4 @@
+import { createUnityDTO } from './dto/create-unity.dto';
 import { UnityService } from './unity.service';
 export declare class UnityController {
     private readonly unityService;
@@ -13,5 +14,5 @@ export declare class UnityController {
             endIndex: number;
         };
     }>;
-    create(createUnityDTO: any): void;
+    create(createUnityDTO: createUnityDTO): Promise<void>;
 }

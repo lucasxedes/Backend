@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Post, Request } from '@nestjs/common';
+import { createUnityDTO } from './dto/create-unity.dto';
 import { UnityService } from './unity.service';
 
 @Controller('unity')
@@ -17,5 +18,7 @@ export class UnityController {
   }
 
   @Post()
-  create(@Body() createUnityDTO: ) {}
+  async create(@Body() createUnityDTO: createUnityDTO) {
+    return await this.unityService.create(createUnityDTO);
+  }
 }
