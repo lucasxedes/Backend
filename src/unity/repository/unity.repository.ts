@@ -37,4 +37,9 @@ export class UnityRepository {
       data: updateUnityDTO,
     });
   }
+  async remove(id: bigint) {
+    return await this.prisma.unity.delete({
+      where: { id },
+    });
+  }
 }

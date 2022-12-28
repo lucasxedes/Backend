@@ -10,4 +10,5 @@ export declare class UnityRepository {
     }>;
     create(createUnityDTO: CreateUnityDTO): Promise<import(".prisma/client").Unity>;
     update(id: bigint, updateUnityDTO: UpdateUnityDTO): Promise<import(".prisma/client").Unity>;
+    remove(id: bigint): Promise<import(".prisma/client").Unity>;
 }

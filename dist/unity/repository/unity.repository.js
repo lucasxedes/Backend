@@ -37,6 +37,11 @@ let UnityRepository = class UnityRepository {
             data: updateUnityDTO,
         });
     }
+    async remove(id) {
+        return await this.prisma.unity.delete({
+            where: { id },
+        });
+    }
 };
 UnityRepository = __decorate([
     (0, common_1.Injectable)(),

@@ -30,6 +30,9 @@ let UnityController = class UnityController {
     async update(id, updateUnityDTO) {
         return await this.unityService.update(BigInt(id), updateUnityDTO);
     }
+    async remove(id) {
+        return await this.unityService.remove(BigInt(id));
+    }
 };
 __decorate([
     (0, common_1.Get)('pages?'),
@@ -53,6 +56,13 @@ __decorate([
     __metadata("design:paramtypes", [String, update_unity_dto_1.UpdateUnityDTO]),
     __metadata("design:returntype", Promise)
 ], UnityController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UnityController.prototype, "remove", null);
 UnityController = __decorate([
     (0, common_1.Controller)('unity'),
     __metadata("design:paramtypes", [unity_service_1.UnityService])

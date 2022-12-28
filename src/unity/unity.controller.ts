@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Patch,
@@ -37,5 +38,10 @@ export class UnityController {
     @Body() updateUnityDTO: UpdateUnityDTO,
   ) {
     return await this.unityService.update(BigInt(id), updateUnityDTO);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string) {
+    return await this.unityService.remove(BigInt(id));
   }
 }

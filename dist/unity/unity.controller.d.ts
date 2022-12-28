@@ -17,4 +17,5 @@ export declare class UnityController {
     }>;
     create(createUnityDTO: CreateUnityDTO): Promise<import(".prisma/client").Unity>;
     update(id: string, updateUnityDTO: UpdateUnityDTO): Promise<import(".prisma/client").Unity>;
+    remove(id: string): Promise<import(".prisma/client").Unity>;
 }
