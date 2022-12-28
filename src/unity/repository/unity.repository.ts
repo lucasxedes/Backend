@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateUnityDTO } from '../dto/create-unity.dto';
 import { UpdateUnityDTO } from '../dto/update-unity.dto';
@@ -25,6 +25,16 @@ export class UnityRepository {
     });
 
     return { results, totalItems };
+  }
+
+  async findById(id: bigint) {
+    const findId = await this.prisma.unity.findFirst({
+      where: { id },
+    });
+    if (!findId) {
+      throw new HttpException('error', 404);
+    }
+    return findId;
   }
 
   async create(createUnityDTO: CreateUnityDTO) {

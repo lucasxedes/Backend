@@ -24,6 +24,9 @@ let UnityController = class UnityController {
     async pagination(request) {
         return await this.unityService.paginate(request.query.hasOwnProperty('page') ? request.query.page : 0, request.query.hasOwnProperty('size') ? request.query.size : 10, request.query.hasOwnProperty('sort') ? request.query.sort : 'name', request.query.hasOwnProperty('order') ? request.query.order : 'asc', request.query.hasOwnProperty('search') ? request.query.order : '');
     }
+    async findById(id) {
+        return await this.unityService.findById(BigInt(id));
+    }
     async create(createUnityDTO) {
         return await this.unityService.create(createUnityDTO);
     }
@@ -41,6 +44,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], UnityController.prototype, "pagination", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UnityController.prototype, "findById", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),

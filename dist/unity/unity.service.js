@@ -32,6 +32,9 @@ let UnityService = class UnityService {
             },
         };
     }
+    async findById(id) {
+        return await this.repository.findById(id);
+    }
     async create(createUnityDTO) {
         return await this.repository.create(createUnityDTO);
     }

@@ -8,6 +8,7 @@ export declare class UnityRepository {
         results: import(".prisma/client").Unity[];
         totalItems: number;
     }>;
+    findById(id: bigint): Promise<import(".prisma/client").Unity>;
     create(createUnityDTO: CreateUnityDTO): Promise<import(".prisma/client").Unity>;
     update(id: bigint, updateUnityDTO: UpdateUnityDTO): Promise<import(".prisma/client").Unity>;
     remove(id: bigint): Promise<import(".prisma/client").Unity>;

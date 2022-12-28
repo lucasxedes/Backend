@@ -28,6 +28,15 @@ let UnityRepository = class UnityRepository {
         });
         return { results, totalItems };
     }
+    async findById(id) {
+        const findId = await this.prisma.unity.findFirst({
+            where: { id },
+        });
+        if (!findId) {
+            throw new common_1.HttpException('error', 404);
+        }
+        return findId;
+    }
     async create(createUnityDTO) {
         return await this.prisma.unity.create({ data: createUnityDTO });
     }

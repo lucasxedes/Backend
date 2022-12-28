@@ -13,6 +13,12 @@ let ErrorsInterceptor = class ErrorsInterceptor {
     intercept(context, next) {
         return next.handle().pipe((0, operators_1.catchError)((err) => {
             const code = err.code;
+            console.log('code', code);
+            console.log(Object.keys(err));
+            console.log(err.name);
+            if (err.name.includes('HttpException')) {
+                throw new common_1.NotFoundException('Registro não encontrando.');
+            }
             switch (code) {
                 case 'P2002':
                     if (err.message.includes('name')) {

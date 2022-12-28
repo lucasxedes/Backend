@@ -27,6 +27,11 @@ export class UnityController {
     );
   }
 
+  @Get(':id')
+  async findById(@Param('id') id: string) {
+    return await this.unityService.findById(BigInt(id));
+  }
+
   @Post()
   async create(@Body() createUnityDTO: CreateUnityDTO) {
     return await this.unityService.create(createUnityDTO);

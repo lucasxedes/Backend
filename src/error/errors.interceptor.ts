@@ -7,7 +7,7 @@ import {
   ConflictException,
   NotFoundException,
 } from '@nestjs/common';
-import { Observable } from 'rxjs';
+import { NotFoundError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -16,7 +16,13 @@ export class ErrorsInterceptor implements NestInterceptor {
     return next.handle().pipe(
       catchError((err) => {
         const code = err.code;
-        /*console.log(err);*/
+        console.log('code', code);
+        console.log(Object.keys(err));
+        console.log(err.name);
+        if (err.name.includes('HttpException')) {
+          throw new NotFoundException('Registro não encontrando.');
+        }
+
         switch (code) {
           case 'P2002':
             if (err.message.includes('name')) {
