@@ -39,6 +39,9 @@ export class ErrorsInterceptor implements NestInterceptor {
           case 'P2025':
             throw new NotFoundException('Registro não encontrando.');
 
+          case 'P2003':
+            throw new NotFoundException('Registro externo não encontrando.');
+
           default:
             throw new BadGatewayException();
         }

@@ -31,6 +31,8 @@ let ErrorsInterceptor = class ErrorsInterceptor {
                     }
                 case 'P2025':
                     throw new common_1.NotFoundException('Registro não encontrando.');
+                case 'P2003':
+                    throw new common_1.NotFoundException('Registro externo não encontrando.');
                 default:
                     throw new common_1.BadGatewayException();
             }
