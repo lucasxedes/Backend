@@ -3,5 +3,5 @@ import { ProductRepository } from './repository/product.repository';
 export declare class ProductService {
     private readonly productRepository;
     constructor(productRepository: ProductRepository);
-    create(createProductDTO: CreateProductDTO): Promise<import(".prisma/client").Unity>;
+    create(createProductDTO: CreateProductDTO): Promise<import(".prisma/client").Product>;
 }

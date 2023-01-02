@@ -27,6 +27,6 @@ export class ProductRepository {
   }
 
   async create(createProductDTO: CreateProductDTO) {
-    return await this.prisma.unity.create({ data: createProductDTO });
+    return await this.prisma.product.create({ data: createProductDTO });
   }
 }

@@ -7,5 +7,5 @@ export declare class ProductRepository {
         results: import(".prisma/client").Unity[];
         totalItems: number;
     }>;
-    create(createProductDTO: CreateProductDTO): Promise<import(".prisma/client").Unity>;
+    create(createProductDTO: CreateProductDTO): Promise<import(".prisma/client").Product>;
 }

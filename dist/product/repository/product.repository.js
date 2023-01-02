@@ -29,7 +29,7 @@ let ProductRepository = class ProductRepository {
         return { results, totalItems };
     }
     async create(createProductDTO) {
-        return await this.prisma.unity.create({ data: createProductDTO });
+        return await this.prisma.product.create({ data: createProductDTO });
     }
 };
 ProductRepository = __decorate([
