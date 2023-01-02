@@ -20,4 +20,5 @@ export declare class ProductController {
         unity: import(".prisma/client").Unity;
     }>;
     update(id: string, updateProduct: UpdateProductDto): Promise<import(".prisma/client").Product>;
+    destroy(id: string): Promise<import(".prisma/client").Product>;
 }

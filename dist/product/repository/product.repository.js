@@ -43,6 +43,11 @@ let ProductRepository = class ProductRepository {
             data: updateProductDTO,
         });
     }
+    async destroy(id) {
+        return await this.prisma.product.delete({
+            where: { id },
+        });
+    }
 };
 ProductRepository = __decorate([
     (0, common_1.Injectable)(),

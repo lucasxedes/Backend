@@ -33,6 +33,9 @@ let ProductController = class ProductController {
     async update(id, updateProduct) {
         return await this.productService.update(BigInt(id), updateProduct);
     }
+    async destroy(id) {
+        return await this.productService.destroy(BigInt(id));
+    }
 };
 __decorate([
     (0, common_1.Get)('pages?'),
@@ -63,6 +66,13 @@ __decorate([
     __metadata("design:paramtypes", [String, update_product_dto_1.UpdateProductDto]),
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "destroy", null);
 ProductController = __decorate([
     (0, common_1.Controller)('product'),
     __metadata("design:paramtypes", [product_service_1.ProductService])

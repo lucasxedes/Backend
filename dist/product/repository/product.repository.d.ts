@@ -13,4 +13,5 @@ export declare class ProductRepository {
         unity: import(".prisma/client").Unity;
     }>;
     update(id: bigint, updateProductDTO: UpdateProductDto): Promise<import(".prisma/client").Product>;
+    destroy(id: bigint): Promise<import(".prisma/client").Product>;
 }

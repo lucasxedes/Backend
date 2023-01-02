@@ -44,4 +44,10 @@ export class ProductRepository {
       data: updateProductDTO,
     });
   }
+
+  async destroy(id: bigint) {
+    return await this.prisma.product.delete({
+      where: { id },
+    });
+  }
 }

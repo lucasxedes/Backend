@@ -41,6 +41,9 @@ let ProductService = class ProductService {
     async update(id, updateProduct) {
         return await this.productRepository.update(id, updateProduct);
     }
+    async destroy(id) {
+        return await this.productRepository.destroy(id);
+    }
 };
 ProductService = __decorate([
     (0, common_1.Injectable)(),

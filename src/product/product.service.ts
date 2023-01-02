@@ -48,4 +48,8 @@ export class ProductService {
   async update(id: bigint, updateProduct: UpdateProductDto) {
     return await this.productRepository.update(id, updateProduct);
   }
+
+  async destroy(id: bigint) {
+    return await this.productRepository.destroy(id);
+  }
 }

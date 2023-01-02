@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Patch,
@@ -42,5 +43,10 @@ export class ProductController {
     @Body() updateProduct: UpdateProductDto,
   ) {
     return await this.productService.update(BigInt(id), updateProduct);
+  }
+
+  @Delete(':id')
+  async destroy(@Param('id') id: string) {
+    return await this.productService.destroy(BigInt(id));
   }
 }

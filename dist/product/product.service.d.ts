@@ -20,4 +20,5 @@ export declare class ProductService {
         unity: import(".prisma/client").Unity;
     }>;
     update(id: bigint, updateProduct: UpdateProductDto): Promise<import(".prisma/client").Product>;
+    destroy(id: bigint): Promise<import(".prisma/client").Product>;
 }
