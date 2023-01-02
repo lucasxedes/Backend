@@ -9,4 +9,8 @@ export class ProductService {
   async create(createProductDTO: CreateProductDTO) {
     return await this.productRepository.create(createProductDTO);
   }
+
+  async findById(id: bigint) {
+    return await this.productRepository.findById(id);
+  }
 }

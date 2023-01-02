@@ -8,4 +8,7 @@ export declare class ProductRepository {
         totalItems: number;
     }>;
     create(createProductDTO: CreateProductDTO): Promise<import(".prisma/client").Product>;
+    findById(id: bigint): Promise<import(".prisma/client").Product & {
+        unity: import(".prisma/client").Unity;
+    }>;
 }

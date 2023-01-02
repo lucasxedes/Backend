@@ -23,6 +23,9 @@ let ProductController = class ProductController {
     async create(createProduct) {
         return await this.productService.create(createProduct);
     }
+    async findById(id) {
+        return await this.productService.findById(BigInt(id));
+    }
 };
 __decorate([
     (0, common_1.Post)(),
@@ -31,6 +34,13 @@ __decorate([
     __metadata("design:paramtypes", [create_product_dto_1.CreateProductDTO]),
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "findById", null);
 ProductController = __decorate([
     (0, common_1.Controller)('product'),
     __metadata("design:paramtypes", [product_service_1.ProductService])

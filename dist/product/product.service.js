@@ -19,6 +19,9 @@ let ProductService = class ProductService {
     async create(createProductDTO) {
         return await this.productRepository.create(createProductDTO);
     }
+    async findById(id) {
+        return await this.productRepository.findById(id);
+    }
 };
 ProductService = __decorate([
     (0, common_1.Injectable)(),

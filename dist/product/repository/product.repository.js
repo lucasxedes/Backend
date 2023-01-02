@@ -31,6 +31,12 @@ let ProductRepository = class ProductRepository {
     async create(createProductDTO) {
         return await this.prisma.product.create({ data: createProductDTO });
     }
+    async findById(id) {
+        return await this.prisma.product.findFirstOrThrow({
+            where: { id },
+            include: { unity: true },
+        });
+    }
 };
 ProductRepository = __decorate([
     (0, common_1.Injectable)(),

@@ -29,4 +29,11 @@ export class ProductRepository {
   async create(createProductDTO: CreateProductDTO) {
     return await this.prisma.product.create({ data: createProductDTO });
   }
+
+  async findById(id: bigint) {
+    return await this.prisma.product.findFirstOrThrow({
+      where: { id },
+      include: { unity: true },
+    });
+  }
 }
