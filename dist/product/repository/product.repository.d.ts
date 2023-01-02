@@ -1,4 +1,5 @@
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CreateProductDTO } from '../dto/create-product.dto';
 export declare class ProductRepository {
     private readonly prisma;
     constructor(prisma: PrismaService);
@@ -6,5 +7,5 @@ export declare class ProductRepository {
         results: import(".prisma/client").Unity[];
         totalItems: number;
     }>;
-    create(): any;
+    create(createProductDTO: CreateProductDTO): Promise<import(".prisma/client").Unity>;
 }
