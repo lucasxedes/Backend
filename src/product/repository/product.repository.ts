@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateProductDTO } from '../dto/create-product.dto';
+import { UpdateProductDto } from '../dto/update-product.dto';
 
 @Injectable()
 export class ProductRepository {
@@ -13,13 +14,13 @@ export class ProductRepository {
     order: string,
     search: string,
   ) {
-    const results = await this.prisma.unity.findMany({
+    const results = await this.prisma.product.findMany({
       skip: page * size,
       take: Number(size),
       where: { name: { contains: search } },
       orderBy: { [sort]: order },
     });
-    const totalItems = await this.prisma.unity.count({
+    const totalItems = await this.prisma.product.count({
       where: { name: { contains: search, mode: 'insensitive' } },
     });
 
@@ -34,6 +35,13 @@ export class ProductRepository {
     return await this.prisma.product.findFirstOrThrow({
       where: { id },
       include: { unity: true },
+    });
+  }
+
+  async update(id: bigint, updateProductDTO: UpdateProductDto) {
+    return await this.prisma.product.update({
+      where: { id },
+      data: updateProductDTO,
     });
   }
 }

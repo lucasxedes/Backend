@@ -15,7 +15,12 @@ let ErrorsInterceptor = class ErrorsInterceptor {
             const code = err.code;
             console.log('code', code);
             console.log(Object.keys(err));
+            console.log('meta', err.meta);
             console.log(err.name);
+            console.log(err.response);
+            console.log(Object.keys(context));
+            console.log('args', context.getArgs());
+            console.log('args', context.getArgs()[0].method);
             if (err.name.includes('HttpException')) {
                 throw new common_1.NotFoundException('Registro não encontrando.');
             }

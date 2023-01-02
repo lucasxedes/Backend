@@ -6,7 +6,6 @@ export class CreateProductDTO {
   @IsString({ message: 'Somento String' })
   name: string;
 
-  @IsOptional()
   @IsNumber({}, { message: 'O preço de venda deve ser um número.' })
   @Type(() => Number)
   priceSale: number;

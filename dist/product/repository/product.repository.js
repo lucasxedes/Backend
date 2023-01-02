@@ -17,13 +17,13 @@ let ProductRepository = class ProductRepository {
         this.prisma = prisma;
     }
     async paginate(page, size, sort, order, search) {
-        const results = await this.prisma.unity.findMany({
+        const results = await this.prisma.product.findMany({
             skip: page * size,
             take: Number(size),
             where: { name: { contains: search } },
             orderBy: { [sort]: order },
         });
-        const totalItems = await this.prisma.unity.count({
+        const totalItems = await this.prisma.product.count({
             where: { name: { contains: search, mode: 'insensitive' } },
         });
         return { results, totalItems };
@@ -35,6 +35,12 @@ let ProductRepository = class ProductRepository {
         return await this.prisma.product.findFirstOrThrow({
             where: { id },
             include: { unity: true },
+        });
+    }
+    async update(id, updateProductDTO) {
+        return await this.prisma.product.update({
+            where: { id },
+            data: updateProductDTO,
         });
     }
 };

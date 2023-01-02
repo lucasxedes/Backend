@@ -16,11 +16,30 @@ let ProductService = class ProductService {
     constructor(productRepository) {
         this.productRepository = productRepository;
     }
+    async paginate(page, size, sort, order, search) {
+        const { results, totalItems } = await this.productRepository.paginate(page, size, sort, order, search);
+        const totalPages = Math.ceil(totalItems / size) - 1;
+        const currentPage = Number(page);
+        return {
+            results,
+            pagination: {
+                length: totalItems,
+                size: size,
+                lastPage: totalPages,
+                page: currentPage,
+                startIndex: currentPage * size,
+                endIndex: currentPage * size + (size - 1),
+            },
+        };
+    }
     async create(createProductDTO) {
         return await this.productRepository.create(createProductDTO);
     }
     async findById(id) {
         return await this.productRepository.findById(id);
+    }
+    async update(id, updateProduct) {
+        return await this.productRepository.update(id, updateProduct);
     }
 };
 ProductService = __decorate([
